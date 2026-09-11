@@ -1,10 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Rivera — Virtual Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #ffffff;
+    --ink: #1c1b19;
+    --ink-dim: #6b6862;
+    --line: #e6e3dd;
+    --accent: #4a7a63;
+  }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  a:focus-visible,
+  button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero{
+    padding: 88px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-inner{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-photo{
+    flex: 0 0 auto;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--line);
+  }
+
+  .hero-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-text{ flex: 1 1 auto; min-width: 0; }
+
+  .kicker{
+    color: var(--ink-dim);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  h1{
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em{
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p.lede{
+    margin-top: 20px;
+    max-width: 48ch;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+  }
+
+  nav.contact-row{
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 26px;
+  }
+
+  nav.contact-row a{
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  nav.contact-row a:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  section{ padding: 60px 0; border-bottom: 1px solid var(--line); }
+
+  section:last-of-type{ border-bottom: none; }
+
+  h2{
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  .service-list{
+    display: grid;
+    gap: 22px;
+  }
+
+  .service{
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 6px 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .service:first-child{ border-top: none; padding-top: 0; }
+
+  .service-name{
+    font-size: 1.02rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .service-desc{
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 50ch;
+  }
+
+  .about-text{
+    max-width: 58ch;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+  }
+
+  .about-text strong{
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .skills{
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  .skills span{
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+  }
+
+  .skills span:not(:last-child)::after{
+    content: '·';
+    margin-left: 14px;
+    color: var(--line);
+  }
+
+  footer{
+    padding: 44px 0 60px;
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 560px){
+    header.hero{ padding: 56px 0 40px; }
+    .hero-inner{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .hero-photo{ width: 96px; height: 96px; }
+    section{ padding: 44px 0; }
+    .service{
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
 </head>
 <body>
-  <h1>Hello World from Vercel!</h1>
-  <p>API is at <a href="/api/hello">/api/helloss</a></p>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-photo">
+      <img src="https://placehold.co/256x256" alt="Portrait photo">
+    </div>
+    <div class="hero-text">
+      <p class="kicker">Alex Rivera — Virtual Assistant</p>
+      <h1>Reliable support, ready to <em>learn and grow</em> with your team.</h1>
+      <p class="lede">Fresh IT graduate offering Virtual Assistant, Data Entry, and IT Support services. New to freelancing, but reliable, patient, and serious about doing good work.</p>
+    </div>
+  </div>
+  <nav class="contact-row">
+    <a href="mailto:hello@alexrivera.dev">hello@alexrivera.dev</a>
+    <a href="tel:+10000000000">+1 (000) 000-0000</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#" download>Résumé</a>
+  </nav>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <h2>What I do</h2>
+    <div class="service-list">
+      <div class="service">
+        <span class="service-name">Virtual Assistant</span>
+        <span class="service-desc">Calendar and inbox management, scheduling, travel booking, and general admin support so you can focus on higher-value work.</span>
+      </div>
+      <div class="service">
+        <span class="service-name">Data Entry</span>
+        <span class="service-desc">Accurate, high-volume data entry, spreadsheet cleanup, database maintenance, and document formatting with strict attention to detail.</span>
+      </div>
+      <div class="service">
+        <span class="service-name">IT Support</span>
+        <span class="service-desc">Basic troubleshooting for common hardware and software issues, account and device setup, and remote technical support.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p class="about-text">I'm a fresh IT graduate looking for an opportunity to start working remotely. I'm new to online freelancing, but I take my work seriously and I'm <strong>willing to learn</strong>. I have experience with basic data entry, Microsoft Office, Google tools, and basic IT support, including troubleshooting common technical problems across different computer systems. I'm reliable, patient, and comfortable following instructions — happy to start with simple tasks while I build my experience, with the goal of growing into a long-term, valuable part of your team.</p>
+    <div class="skills">
+      <span>Microsoft Office</span>
+      <span>Google Workspace</span>
+      <span>Data Entry</span>
+      <span>Basic Troubleshooting</span>
+      <span>Computer Systems</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>© 2026 Alex Rivera</span>
+    <span>Available for remote work</span>
+  </div>
+</footer>
+
 </body>
 </html>
