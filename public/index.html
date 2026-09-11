@@ -20,6 +20,11 @@
 
   html{ scroll-behavior: smooth; }
 
+  html, body{
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   body{
     background: var(--bg);
     color: var(--ink);
@@ -39,6 +44,7 @@
 
   .wrap{
     max-width: 760px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 24px;
   }
@@ -52,6 +58,7 @@
     display: flex;
     align-items: center;
     gap: 40px;
+    flex-wrap: wrap;
   }
 
   .hero-photo{
@@ -70,7 +77,7 @@
     display: block;
   }
 
-  .hero-text{ flex: 1 1 auto; min-width: 0; }
+  .hero-text{ flex: 1 1 260px; min-width: 0; max-width: 100%; }
 
   .kicker{
     color: var(--ink-dim);
@@ -84,6 +91,8 @@
     font-size: clamp(2rem, 5.5vw, 3rem);
     line-height: 1.15;
     letter-spacing: -0.01em;
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   h1 em{
@@ -103,6 +112,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 18px 26px;
+    width: 100%;
   }
 
   nav.contact-row a{
@@ -220,22 +230,24 @@
 <body>
 
 <header class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-photo">
-      <img src="https://placehold.co/256x256" alt="Portrait photo">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <img src="https://placehold.co/256x256" alt="Portrait photo">
+      </div>
+      <div class="hero-text">
+        <p class="kicker">Alex Rivera — Virtual Assistant</p>
+        <h1>Reliable support, ready to <em>learn and grow</em> with your team.</h1>
+        <p class="lede">Fresh IT graduate offering Virtual Assistant, Data Entry, and IT Support services. New to freelancing, but reliable, patient, and serious about doing good work.</p>
+      </div>
     </div>
-    <div class="hero-text">
-      <p class="kicker">Alex Rivera — Virtual Assistant</p>
-      <h1>Reliable support, ready to <em>learn and grow</em> with your team.</h1>
-      <p class="lede">Fresh IT graduate offering Virtual Assistant, Data Entry, and IT Support services. New to freelancing, but reliable, patient, and serious about doing good work.</p>
-    </div>
+    <nav class="contact-row">
+      <a href="mailto:hello@alexrivera.dev">hello@alexrivera.dev</a>
+      <a href="tel:+10000000000">+1 (000) 000-0000</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" download>Résumé</a>
+    </nav>
   </div>
-  <nav class="contact-row">
-    <a href="mailto:hello@alexrivera.dev">hello@alexrivera.dev</a>
-    <a href="tel:+10000000000">+1 (000) 000-0000</a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="#" download>Résumé</a>
-  </nav>
 </header>
 
 <section id="services">
